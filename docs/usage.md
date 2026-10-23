@@ -2,6 +2,8 @@
 
 These are the detailed setup, storage, and implementation notes for Agent Session Manager. For an overview, see the [README](../README.md).
 
+For a visual walkthrough, see the [screenshot gallery](screenshots.md).
+
 ## Setup
 
 Use Windows 10 1809 or later, Node.js 22.12+ (Node 24 recommended), and npm. Install Claude Code and/or Codex CLI separately and authenticate using their normal setup. The app uses the CLI installations and credentials already on your machine.

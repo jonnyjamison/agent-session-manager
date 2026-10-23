@@ -6,6 +6,10 @@ The part I care about most is preserving context. The goal, the decisions made a
 
 This is an early working version built with Electron, React, TypeScript, xterm.js, and node-pty. It runs the CLIs installed on your machine and uses their existing authentication.
 
+![New session screen with Claude Code and Codex, a named session, and a selected project folder](docs/screenshots/new-session.png)
+
+The screenshots use example sessions and checkpoint data. There's a [full screenshot gallery](docs/screenshots.md) too.
+
 ## What it does
 
 - Runs Claude Code and Codex in embedded terminals that stay alive when you switch sessions.
@@ -47,6 +51,8 @@ From a session, choose **Save checkpoint** and record enough for someone to cont
 
 Drafts are saved locally as you type. Saved checkpoints stay in the **Context library**, even after their session is removed. Creating a revision keeps the previous checkpoint intact.
 
+![Context library showing saved handovers for a telemetry parser and a retry-policy review](docs/screenshots/context-library.png)
+
 To continue elsewhere:
 
 1. Open a checkpoint and review the handover.
@@ -55,9 +61,18 @@ To continue elsewhere:
 
 You can optionally capture the Git branch, commit, and changed-file names, or include a short terminal excerpt. Review these before sharing. A checkpoint preserves the handover you've written; it doesn't recreate an agent's full conversation state or restore your code.
 
+<details>
+<summary>See an example saved handover</summary>
+
+![Saved checkpoint with the goal, progress, decisions, blockers, and options to copy or export the handover](docs/screenshots/checkpoint-handover.png)
+
+</details>
+
 ## Knowing when a session needs you
 
 The **Needs me** queue shows where an item came from:
+
+![Needs me queue with a clearly labelled inferred approval prompt and a manual decision reminder](docs/screenshots/needs-me.png)
 
 | Source | What it means |
 | --- | --- |
