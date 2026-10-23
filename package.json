@@ -1,0 +1,42 @@
+{
+  "name": "agent-session-manager",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local Claude Code and Codex terminal workspace",
+  "repository": { "type": "git", "url": "https://github.com/jonnyjamison/agent-session-manager.git" },
+  "bugs": { "url": "https://github.com/jonnyjamison/agent-session-manager/issues" },
+  "homepage": "https://github.com/jonnyjamison/agent-session-manager#readme",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev": "npm run build && electron .",
+    "build": "tsc -p tsconfig.electron.json && tsc --noEmit && vite build",
+    "start": "electron .",
+    "test:external": "tsc -p tsconfig.electron.json && node scripts/check-external.cjs",
+    "test": "tsc -p tsconfig.electron.json && node scripts/check-external.cjs && node scripts/check-context.cjs",
+    "package": "npm run build && electron-builder --win portable"
+  },
+  "dependencies": {
+    "@xterm/addon-fit": "^0.10.0",
+    "@xterm/xterm": "^5.5.0",
+    "node-pty": "^1.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "electron": "^41.0.0",
+    "electron-builder": "^26.0.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.0.0"
+  },
+  "build": {
+    "npmRebuild": false,
+    "appId": "local.agent-session-manager",
+    "productName": "Agent Session Manager",
+    "files": ["dist/**/*", "dist-electron/**/*", "package.json"],
+    "asarUnpack": ["node_modules/node-pty/**/*"],
+    "directories": { "output": "release" }
+  }
+}
